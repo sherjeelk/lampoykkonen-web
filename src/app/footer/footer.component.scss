@@ -1,0 +1,52 @@
+.footer {
+  background: #0A0A0A;
+  color: white;
+  padding: 10px;
+  overflow: hidden;
+
+  .copyright p {
+    border-top: 1px solid whitesmoke;
+  }
+}
+
+.footer_right_text {
+  color: white;
+  font-size: 14px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  color: white;
+}
+
+.fa-twitter {
+  color: white;
+}
+
+.fa-instagram {
+  color: white;
+}
+
+.cooyright_text {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+
+.cursor{
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+
+}

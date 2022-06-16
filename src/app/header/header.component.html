@@ -1,0 +1,70 @@
+<!--<div class="header">-->
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <a href=""><img src="assets/images/lampo-logo.png" style="width: 160px"></a>-->
+<!--    </div>-->
+<!--    <div class="col-auto text-right">-->
+<!--      <svg style="width:24px;height:24px" viewBox="0 0 24 24">-->
+<!--        <path fill="#767676" d="M12.87,15.07L10.33,12.56L10.36,12.53C12.1,10.59 13.34,8.36 14.07,6H17V4H10V2H8V4H1V6H12.17C11.5,7.92 10.44,9.75 9,11.35C8.07,10.32 7.3,9.19 6.69,8H4.69C5.42,9.63 6.42,11.17 7.67,12.56L2.58,17.58L4,19L9,14L12.11,17.11L12.87,15.07M18.5,10H16.5L12,22H14L15.12,19H19.87L21,22H23L18.5,10M15.88,17L17.5,12.67L19.12,17H15.88Z" />-->
+<!--      </svg>-->
+<!--      <button mat-flat-button (click)="changeLanguage('en')" *ngIf="translationService.getLang() === 'fi'">English</button>-->
+<!--      <button mat-flat-button (click)="changeLanguage('fi')" *ngIf="translationService.getLang() === 'en'">Finnish</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="header">
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="assets/images/lampo-logo.png" alt=""></a>
+        <!--        <div>-->
+        <!--          <ul class="navbar-nav ml-auto">-->
+        <!--            <li class="nav-item dropdown px-5 lang">-->
+        <!--              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"-->
+        <!--                 aria-expanded="false">-->
+        <!--                <img-->
+        <!--                  [src]="translationService.getLang() === 'en' ? 'assets/images/us-flag.png': 'assets/images/finland-flag.png'"-->
+        <!--                  style=" width: 31px; cursor: pointer;">-->
+        <!--                <span class="ml-2">{{translationService.getLang() === 'en' ? 'En' : 'Fi'}}</span>-->
+        <!--              </a>-->
+
+        <!--              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+        <!--                <li (click)="changeLanguage('en')"><a class="dropdown-item" style="cursor:pointer;"> <img-->
+        <!--                  src="assets/images/us-flag.png" style="width: 31px; cursor: pointer;"><span-->
+        <!--                  class="ml-2">En</span></a></li>-->
+        <!--                <li (click)="changeLanguage('fi')"><a class="dropdown-item" style="cursor:pointer;"> <img-->
+        <!--                  src="assets/images/finland-flag.png" style="width: 31px; cursor: pointer;"><span class="ml-2">Fi</span></a>-->
+        <!--                </li>-->
+        <!--              </ul>-->
+        <!--            </li>-->
+        <!--          </ul>-->
+        <!--        </div>-->
+
+
+        <div class="dropdown" style="cursor: pointer">
+          <a  (click)="dropdown()"  role="button" style="list-style-type: none; text-decoration: none; color: black">
+            <img [src]="translationService.getLang() === 'en' ? 'assets/images/us-flag.png': 'assets/images/finland-flag.png'"
+              style=" width: 31px; cursor: pointer;">
+            <span class="ml-2">{{translationService.getLang() === 'en' ? 'En' : 'Fi'}}</span>
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M7,10L12,15L17,10H7Z" />
+          </svg>
+          </a>
+
+          <div class="dropdown-content" *ngIf="showLang">
+            <a (click)="changeLanguage('en')"  *ngIf="translationService.getLang() === 'fi'">
+              <img src="assets/images/us-flag.png" style="width: 31px; cursor: pointer;"> <span
+              class="ml-2">En</span></a>
+            <a (click)="changeLanguage('fi')" *ngIf="translationService.getLang() === 'en'">
+              <img src="assets/images/finland-flag.png" style="width: 31px; cursor: pointer;"> <span
+              class="ml-2">Fi</span></a>
+            </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+

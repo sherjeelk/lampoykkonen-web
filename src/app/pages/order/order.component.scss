@@ -1,0 +1,117 @@
+h4
+{
+  font-family: Popins-B;
+  color:#e50000;
+}
+.img_padding
+{
+  padding: 20px;
+
+}
+p{
+  font-size: 12px;
+}
+.border
+{
+  border: 1px solid #e50000!important;
+  border-radius: 8px;
+}
+mat-slider {
+  width: 100%;
+}
+.example-margin {
+  margin: 0 12px;
+}
+.seemorelink a
+{
+  font-size: 10px;
+  text-decoration: none;
+  color: black;
+}
+.info_text
+{
+  color: #e50000;
+  font-size: 14px;
+  font-weight: 400;
+}
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+.btn_contact
+{
+  width: 33%;
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 4px 16px;
+}
+.btn_continue
+{
+  width: 30%;
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  float: right;
+
+}
+.contact_div
+{
+  //box-shadow: 1px 1px 1px 1px #b6b3b3;
+  padding:12px;
+}
+/* On screens that are 992px wide or less, */
+@media screen and (max-width: 992px) {
+  mat-slider {
+    width:100%;
+  }
+}
+/* On screens that are 600px wide or less, */
+@media screen and (max-width: 600px) {
+  mat-slider {
+    width:90%;
+  }
+}
+
+.sub_heading
+{
+  font-family: Popins-B;
+  font-size: 16px;
+  margin-top: 22px;
+}
+.seeless_link a
+{
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+}
+.contact_div
+{
+  //box-shadow: 1px 1px 1px 1px #b6b3b3;
+  padding:12px;
+}
+.btn_proceed
+{
+  //width: 30%;
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  float: right;
+  padding: 5px 13px;
+  outline: none;
+
+}
+.btn_apply
+{
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  float: right;
+  padding: 2px 32px;
+  margin-top: 13px;
+  outline: none;
+}
+
+
+

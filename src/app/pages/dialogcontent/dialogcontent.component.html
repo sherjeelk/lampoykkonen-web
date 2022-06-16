@@ -1,0 +1,38 @@
+<div style="position: relative">
+
+  <div class="row header">
+
+    <div class="col">
+      <h5> {{data.title}}
+      </h5>
+    </div>
+    <div class="col-auto">
+      <svg (click)="close()" style="width:24px;height:24px; cursor: pointer; color: #e50000;" viewBox="0 0 24 24">
+        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              fill="currentColor"/>
+      </svg>
+    </div>
+
+  </div>
+
+</div>
+<!--  <div>-->
+<!--    <hr style="color: black; width: 100%">-->
+<!--  </div>-->
+  <div *ngIf="data.type === 2" style="padding: 10px">
+    <div [innerHTML]="data.content" >
+    </div>
+  </div>
+
+<div *ngIf="data.type === 1" style="padding: 10px">
+  <div style="font-size: 18px">
+    {{data.content.desc}}
+  </div>
+  <hr>
+  <div class="grid">
+    <div  class="column" *ngFor="let item of data.content.additional">
+      <div style="color: #1d1d1d;font-size: 18px">{{item.label}}</div>
+      <div style="color: #353b3b;font-size: 16px">{{item.value}}</div>
+    </div>
+  </div>
+</div>

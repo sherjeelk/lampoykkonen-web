@@ -1,0 +1,271 @@
+h4 {
+  font-family: Popins-B;
+  color: #e50000;
+}
+
+.img_padding {
+  padding: 20px;
+
+}
+
+.custom-style {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.custom-description {
+  padding: 12px 13px;
+
+}
+
+.price {
+  color: #179806;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 13px;
+}
+
+
+.img_custom {
+  padding: 18px 15px;
+}
+p {
+  font-size: 12px;
+}
+
+.border {
+  border: 1px solid #e50000 !important;
+  border-radius: 8px;
+}
+
+mat-slider {
+  width: 100%;
+}
+
+.example-margin {
+  margin: 0 12px;
+}
+
+.seemorelink a {
+  font-size: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.info_text {
+  color: #e50000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.btn_contact {
+  //width: 33%;
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  padding: 0px 40px;
+
+}
+
+.btn_cancel {
+  border: 1px solid #e50000;
+  color: #e50000;
+  border-radius: 10px;
+  margin-right: 5px !important;
+  padding: 0px 12px;
+}
+
+.btn_continue {
+
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  float: right;
+  outline: none;
+  padding: 0px 40px;
+}
+
+.best_Sellerclass {
+  font-weight: 500;
+  border-radius: 10px;
+  border: 1px solid #e50000;
+  font-size: 12px;
+  color: #e50000;
+  padding: 6px 16px;
+  margin-left: 40px;
+}
+
+.radio_btn {
+  display: block !important;
+}
+
+.contact_div {
+  //box-shadow: 1px 1px 1px 1px #b6b3b3;
+  padding: 12px;
+}
+
+/* On screens that are 992px wide or less, */
+@media screen and (max-width: 992px) {
+  mat-slider {
+    width: 100%;
+  }
+
+
+}
+
+/* On screens that are 600px wide or less, */
+@media screen and (max-width: 786px) {
+  .mob-hide {
+    display: none;
+  }
+  .custom-description {
+    padding: 4px 13px;
+    text-align: center;
+  }
+  .img_custom {
+    padding: 12px 35px;
+    text-align: center;
+  }
+  .custom-style {
+    width: 50%;
+    border-radius: 15px;
+  }
+  .img_custom {
+    padding: 12px 35px;;
+  }
+  mat-slider {
+    width: 90%;
+  }
+  .img_style {
+    width: 50% !important;
+    max-width: 200px;
+  }
+  .product_name {
+    font-size: 11px;
+    padding: 12px 13px;
+
+  }
+  .best_Sellerclass {
+    font-weight: 500;
+    border-radius: 9px;
+    border: 1px solid #e50000;
+    font-size: 11px;
+    color: #e50000;
+    padding: 10px 9px;
+    margin-left: -3px;
+  }
+}
+
+@media screen and (min-width: 786px) {
+  .desktop-hide {
+    display: none;
+  }
+}
+
+
+.sub_heading {
+  font-family: Popins-B;
+  font-size: 16px;
+  margin-top: 22px;
+}
+
+.popup_link a {
+  color: #e50000;
+  list-style: none;
+  text-decoration: none;
+  pointer: cursor;
+  cursor: pointer;
+
+}
+
+.read_more {
+  color: #F06A6A;
+  list-style: none;
+  text-decoration: none;
+  pointer: cursor;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 12px 6px;
+}
+
+.contact_div {
+  border: 1px solid #f9e6e661;
+  background: #f9e6e661;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.btn_ok {
+  background-color: #e50000;
+  color: white;
+  border-radius: 10px;
+  margin-right: 8px;
+  outline: none;
+}
+
+
+.btn_discover {
+  border: 1px solid #e50000 !important;
+  color: #e50000 !important;
+  padding: 0 15px !important;
+  border-radius: 10px !important;
+  margin-right: 5px !important;
+  outline: none !important;
+}
+
+.slider_width {
+  width: 80%;
+}
+
+.custom-panel {
+  margin-top: 20px;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.btn_description {
+  color: #e50000;
+  border-radius: 10px;
+  outline: none;
+  padding: 0px 22px;
+  border: 1px solid #e50000;
+  text-align: right;
+}
+
+.img_style {
+  width: 100%;
+  border-radius: 15px;
+  max-width: 200px;
+
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+  position: relative;
+}
+
+@media (max-width: 992px) {
+  .img-pos {
+    text-align: center;
+    padding: 29px 33px;
+  }
+}
+
+
+@media (min-width: 991px) {
+  .img-pos {
+    text-align: left;
+    padding: 29px 33px;
+  }
+}
+
+.popup_link {
+  padding: 12px 13px;
+}

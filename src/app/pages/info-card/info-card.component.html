@@ -1,0 +1,84 @@
+<mat-card class="info-card mat-elevation-z5" style="margin:5px; border-radius: 22px;">
+  <div class="d-flex" style="justify-content: space-between;">
+    <div class="main_heading P-B ">{{"totPrice"|language}}</div>
+    <div *ngIf="dataShare.totalPrice > 0" class="price_heading P-B ">{{this.dataShare.totalPrice.toFixed(2)}} &euro;</div>
+  </div>
+  <hr>
+
+    <div *ngIf="dataShare.selectedServiceValue" class="d-flex" style="justify-content: space-between;">
+      <div><p class="L-M">{{"Ser"|language}}</p></div>
+      <div><p class="L-M" style="color: #e50000;">{{dataShare.selectedServiceValue.name}}</p></div>
+     </div>
+
+  <div *ngIf="dataShare.spaceHeatedValue" class="d-flex" style="justify-content: space-between;">
+    <div><p class="L-M">{{"heatSpSize"|language}}</p></div>
+    <div><p *ngIf="dataShare.spaceHeatedValue" class="L-M" style="color: #e50000;">{{dataShare.spaceHeatedValue}} m²</p>
+    </div>
+  </div>
+  <div *ngIf="dataShare.products.length > 0" class="d-flex" style="justify-content: space-between;">
+
+    <div><p class="L-M">{{"pros"|language}}</p></div>
+    <div>
+      <div *ngFor=" let product of dataShare.products" class="L-M"
+           style="color: #e50000; font-size: 10px; text-transform: none">
+
+        <div style="display: flex;justify-content: space-between">
+          <div>{{product.name}}</div>
+          <span (click)="removeLastProducts(product)" style="margin-left: 20px;color: grey">
+          <svg style="width:19px;height:19px; color: #e50000;" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+          </svg>
+        </span>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+  <div *ngIf="dataShare.customService.length>0" class="d-flex" style="justify-content: space-between;">
+    <div><p class="L-M">{{"cusPo"|language}}</p></div>
+    <div>
+      <div *ngFor="let service of dataShare.customService " class="L-M"
+           style="color: #e50000;">{{ service.shortName}}</div>
+    </div>
+
+  </div>
+
+  <div *ngIf="dataShare.couponValue" >
+
+    <div *ngIf="dataShare.couponBody?.status === 1" class="d-flex" style="justify-content: space-between;">
+      <div><p class="L-M">{{"coApp"|language}}</p></div>
+      <div class="L-M" style="color: #e50000;" ><p>{{ dataShare.couponValue}}</p></div>
+    </div>
+
+  </div>
+
+  <div *ngIf="(dataShare.slotsSelected && !(dataShare.contactMe))">
+    <div class="d-flex" style="justify-content: space-between;">
+      <div><p class="L-M">{{"selSlo"|language}}</p></div>
+      <div><p class="L-M"> {{"ti"|language}}</p></div>
+      <div><p class="L-M" style="color: #e50000;">{{ dataShare.getTime(dataShare.slotsSelected.start)}}
+        - {{dataShare.getTime(dataShare.slotsSelected.end)}}</p></div>
+    </div>
+    <div class="d-flex" style="justify-content: space-between;">
+      <div><p class="L-M"></p></div>
+      <div><p class="L-M" style="margin-left: 74px;"> {{"Da"|language}}</p></div>
+
+      <div><p class="L-M" style="color: #e50000;">{{ dataShare.slotsSelected.date | date}} </p></div>
+    </div>
+
+  </div>
+
+   <div *ngIf="(dataShare.scheduleContactForm.date && (dataShare.contactMe))" class="d-flex" style="justify-content: space-between;">
+     <div class="L-M"><p>{{"weCont"|language}}</p></div>
+    <div>
+      <div class="L-M" style="color: #e50000;"><p>{{ utilService.getIndianDate(dataShare.scheduleContactForm.date)}} - {{dataShare.scheduleContactForm.time}}</p></div>
+    </div>
+
+  </div>
+
+</mat-card>
+

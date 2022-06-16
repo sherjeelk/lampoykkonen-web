@@ -1,0 +1,222 @@
+<mat-card class="main-card  mat-elevation-z5 my-3" style="border-radius: 22px; margin-top: 65px!important;">
+  <h4 class="m-t-20 m-b-20 " style="margin-top: 17px;">{{"tellUsNeed"| language}}</h4>
+  <a (click)="openCustomDialog()" class="L-M text-end read_more">
+  {{"howOrder" | language}} </a>
+  <svg #tooltip="matTooltip" [matTooltipPosition]="position.value"
+       aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+       class="example-button"
+       matTooltip="{{('howOrder'|language)}}"
+       matTooltipHideDelay="1000"
+       style="width: 18px; height: 18px; margin-top: 1px; margin-left: -6px; color: #F06A6A;"
+       viewBox="0 0 24 24">
+    <path
+      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+      fill="currentColor"/>
+  </svg>
+
+  <p class="sub_heading">{{"heSpac" | language}}</p>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label class="L-M">{{"selHeatSp" | language}}</mat-label>
+    <mat-select (selectionChange)="changeValue($event)">
+      <mat-option *ngFor=" let item of dataShare.apiService" [value]="item"
+                  class=" w-100 L-M">{{item.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p class="sub_heading">{{"spaceHeat"|language}}</p>
+  <mat-radio-group [(ngModel)]="dataShare.spaceHeatedValue" aria-label="Select an option">
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px;" value="0-50">0- 50 m²
+    </mat-radio-button>
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; " value="50-90"> 50-90 m²
+    </mat-radio-button>
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; " value="90-140"> 90-140 m²
+    </mat-radio-button>
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; " value="140-200"> 140-200 m²
+    </mat-radio-button>
+
+  </mat-radio-group>
+
+  <p class="sub_heading">{{"iWanDev" |language}} </p>
+
+  <mat-radio-group [(ngModel)]="dataShare.deviceSelectedValue" aria-label="Select an option">
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; "
+                      value="1"> {{"foHeatFlour"|language}}
+    </mat-radio-button>
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; " value="2"> {{"onFoFad"|language}}
+
+    </mat-radio-button>
+  </mat-radio-group>
+
+
+  <p class="sub_heading">{{"elecWeav"|language}} </p>
+  <mat-radio-group [(ngModel)]="dataShare.filterSelectedValue" aria-label="Select an option">
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; "
+                      value="Karkeä suödätus"> {{"yes"|language}}
+    </mat-radio-button>
+    <mat-radio-button class="radio_btn L-M" style="margin-left: 5px; padding: 5px; " value="Sähkosudätus">
+      {{"no"|language}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+
+  <!--   <h4 class="m-t-20 m-b-20 " style="margin-top: 17px;">Kokoluokka</h4>-->
+  <!--  <div style="margin-left: 5px; padding: 5px; font-family: Lato-M;">valitse koko</div>-->
+  <div class="text-center">
+    <button (click)="getProducts()" class="btn_discover L-SB " mat-button>{{"showPro"|language}}
+    </button>
+
+  </div>
+  <h4 class="m-t-20 m-b-20 " style="margin-top: 17px;">{{"pro"|language}} </h4>
+  <div class="d-flex">
+    <!--    <div class="L-M" style="margin-left: 5px; padding: 5px;">{{"prodAccSize"|language}}</div>-->
+
+  </div>
+
+  <div>
+    <div *ngFor="let item of dataShare.allProducts" class="border my-3">
+
+      <div class="text-right p-3">
+        <mat-checkbox (change)="addProduct($event, item)" [checked]="item.checked" class="mt-3"></mat-checkbox>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-xs-12 img-pos">
+          <a href="">
+            <img alt="" class="img_style" src="assets/images/toshiba.png"></a>
+        </div>
+
+        <div class="col-lg-8 col-xs-12">
+          <div class="my-3">
+            <div class="d-flex">
+              <span class="L-SB product_name">{{item.name}}</span>
+
+              <span *ngIf="item.tag" class="best_Sellerclass L-M">
+            {{item.tag ? item.tag : ''}}</span>
+            </div>
+
+
+            <div class="L-SB price"> {{item.price.toFixed(2)}}
+              &euro;
+            </div>
+
+
+            <p [innerHTML]="item.shortDesc" class="L-M"></p>
+            <a
+              (click)="openDialog({title: 'Product Description', content: item, type: 1})"
+              class="L-M text-end read_more">
+              {{"reMo"|language}}</a>
+
+            <div class="text-start popup_link">
+
+              <button (click)="openDialog({title: ' Tietoa rahoituksesta', content: item.detail, type: 2})"
+                      class="L-M btn_description" mat-button>Tietoa rahoituksesta
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let service of chosenServices" class="border my-3">
+
+    <div *ngIf="service.type === 'custom'" class="custom-panel">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 desktop-hide" style="text-align: right; margin-right: 19px;">
+
+             <span (click)="removeCustomService(service)" style="color: #e50000;">
+                      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path
+                          d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7"
+                          fill="currentColor"/>
+                      </svg>
+             </span>
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          <div class="img_custom">
+            <img class="custom-style" src="/assets/images/Untitled-5.png">
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-12 ">
+
+          <div class=" custom-description">
+            <span class="L-SB">{{service.shortName}}</span>
+          </div>
+          <div class="L-SB custom-description"
+               style="color: #179806; font-size: 14px; font-weight: bold;"> {{service.price}}</div>
+          <p class="L-M custom-description"> {{service.desc}} </p>
+
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 mob-hide">
+
+             <span (click)="removeCustomService(service)" style="color: #e50000;">
+                      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path
+                          d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,13H17V11H7"
+                          fill="currentColor"/>
+                      </svg>
+             </span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!contactForm" class="contact_div">
+    <span class="info_text L-SB">{{"couldnLook"|language}}  </span>
+    <p class="font-regular L-M">{{"subContRequest"|language}}</p>
+    <div class="example-button-row ">
+      <button (click)="contactForm = !contactForm" class="btn_contact L-SB" mat-button>
+        {{"Conta"|language}}
+      </button>
+    </div>
+  </div>
+  <div *ngIf="contactForm" class="contact_div">
+    <p class="L-SB" style="font-size: 14px;">{{"contYou"|language}}</p>
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label class="L-M"> {{"serInterested"|language}}</mat-label>
+          <input #serviceName [(ngModel)]="customServiceName" matInput maxlength="25" minlength="3" type="text">
+          <mat-error class="L-M">
+            {{"pleSer"|language}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label class="L-M"> {{"Ques"|language}}</mat-label>
+          <input #serviceDesc [(ngModel)]="customServiceDesc" class="w-full L-M" matInput maxlength="100" minlength="3"
+                 type="text">
+          <mat-error class="L-M">
+            {{"plEnQu"|language}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div class="text-right">
+      <button (click)="addCustomService(serviceName.value , serviceDesc.value)"
+              [disabled]="customServiceDesc.length < 3 || customServiceName.length < 3" class="btn_ok" mat-flat-button>
+        {{"Ok"|language}}
+      </button>
+      <button (click)="contactForm = false" class="btn_cancel" mat-flat-button>{{"Can"|language}}</button>
+    </div>
+  </div>
+
+</mat-card>
+
+<div class="example-button-row">
+  <button (click)="continueServiceStep()"
+          [disabled]="!(dataShare.selectedServiceValue && dataShare.spaceHeatedValue && dataShare.deviceSelectedValue && dataShare.filterSelectedValue && (dataShare.products.length > 0 || dataShare.customService.length > 0))"
+          class="btn_continue L-SB " mat-button matStepperNext>{{"conti"|language}}
+  </button>
+
+</div>
+
+
